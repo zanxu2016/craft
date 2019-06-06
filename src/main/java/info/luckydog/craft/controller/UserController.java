@@ -1,10 +1,14 @@
 package info.luckydog.craft.controller;
 
-import info.luckydog.craft.model.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import info.luckydog.craft.model.dto.UserDTO;
+import info.luckydog.craft.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * UserController
@@ -12,18 +16,38 @@ import org.springframework.web.bind.annotation.RestController;
  * @author eric
  * @since 2019/6/6
  */
+@Api(tags = {"UserController"}, description = "用户相关接口")
 @RestController
 @RequestMapping("user")
+@Slf4j
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
+    @ApiOperation(value = "获取用户信息", notes = "通过id获取用户信息")
+    @ApiImplicitParam(name = "id", value = "用户Id", required = true, dataType = "Long", paramType = "path")
     @GetMapping("/{id}")
-    public User getUser(@PathVariable("id") Long id) {
-        User user = new User();
-        user.setId(id);
-        user.setName("张三");
-        user.setPwd("******");
-        user.setAge(20);
-        user.setGender(1);
-        return user;
+    public UserDTO getUser(@PathVariable("id") Long id) {
+        return userService.getUser(id);
+    }
+
+    @PostMapping(value = "/addUser")
+    public String addUser(@ModelAttribute UserDTO user) {
+        userService.addUser(user);
+        return "success";
+    }
+
+    @PutMapping(value = "", produces = MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE)
+    public String updateUser(@RequestBody String user) {
+        log.info(user);
+//        userService.updateUser(user);
+        return "success";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
+        userService.deleteUser(id);
+        return "success";
     }
 }

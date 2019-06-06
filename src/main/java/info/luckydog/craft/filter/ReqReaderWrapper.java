@@ -22,8 +22,8 @@ public class ReqReaderWrapper extends HttpServletRequestWrapper {
         super(request);
     }
 
-    public ServletInputStream getInputStream() {
-        ByteArrayInputStream bais = new ByteArrayInputStream(body);
+    public ServletInputStream getInputStream() throws IOException {
+        ByteArrayInputStream bais = new ByteArrayInputStream(getBody());
 
         return new ServletInputStream() {
             @Override
@@ -49,7 +49,7 @@ public class ReqReaderWrapper extends HttpServletRequestWrapper {
     }
 
     public byte[] getBody() throws IOException {
-        this.body = new ByteArrayOutputStream(Math.max(8 * 1024, getInputStream().available())).toByteArray();
+        this.body = new ByteArrayOutputStream(8 * 1024).toByteArray();
         return body;
     }
 

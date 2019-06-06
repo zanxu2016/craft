@@ -1,4 +1,4 @@
-package info.luckydog.craft.model;
+package info.luckydog.craft.model.entity;
 
 /**
  * User
