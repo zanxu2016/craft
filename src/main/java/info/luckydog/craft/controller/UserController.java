@@ -1,5 +1,6 @@
 package info.luckydog.craft.controller;
 
+import com.alibaba.fastjson.JSON;
 import info.luckydog.craft.model.dto.UserDTO;
 import info.luckydog.craft.service.UserService;
 import io.swagger.annotations.Api;
@@ -39,8 +40,8 @@ public class UserController {
     }
 
     @PutMapping(value = "", produces = MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE)
-    public String updateUser(@RequestBody String user) {
-        log.info(user);
+    public String updateUser(@RequestBody UserDTO user) {
+        log.info(JSON.toJSONString(user));
 //        userService.updateUser(user);
         return "success";
     }
