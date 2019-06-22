@@ -15,3 +15,10 @@ mybatis:
   typeAliasesPackage: info.luckydog.craft.model
   ## mapper.xml所在的包，多级使用**/
   mapperLocations: classpath:mapper/**/*.xml
+
+# redis 配置
+redis:
+  host: 192.168.3.49
+  password:
+  port: 6379
+  database: 0
