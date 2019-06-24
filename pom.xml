@@ -102,6 +102,19 @@
             <artifactId>jsoup</artifactId>
             <version>1.12.1</version>
         </dependency>
+
+        <!-- spring boot 发邮件，整合了 spring-boot-starter 、spring-context-support 和 javax.mail -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <!-- javax mail 发邮件，实现 java 发送邮件的功能 -->
+        <!--<dependency>-->
+        <!--<groupId>javax.mail</groupId>-->
+        <!--<artifactId>mail</artifactId>-->
+        <!--<version>1.4.7</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>

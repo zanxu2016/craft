@@ -12,11 +12,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author eric
  * @since 2019/6/6
  */
+// spring boot 项目入口
 @SpringBootApplication
 // mapper 接口类扫描包配置
 @MapperScan("info.luckydog.craft.mapper")
-//扫描自定义的servlet和filter
+// 扫描自定义的servlet和filter
 @ServletComponentScan("info.luckydog.craft.filter")
+// swagger2 可用
 @EnableSwagger2
 public class CraftApplication {
 

@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -46,6 +47,7 @@ public class ModelAttributeController {
     }
 
     @RequestMapping("index")
+    @ResponseBody
     public String test4(@RequestParam("name") String name, Model model) {
         System.out.println("get into method test4");
 
@@ -53,6 +55,6 @@ public class ModelAttributeController {
         Map map = model.asMap();
         System.out.println(map.toString());
 
-        return "index";
+        return "success";
     }
 }
