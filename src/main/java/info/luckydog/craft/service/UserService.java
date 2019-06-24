@@ -2,6 +2,8 @@ package info.luckydog.craft.service;
 
 import info.luckydog.craft.model.dto.UserDTO;
 
+import java.util.List;
+
 /**
  * UserService
  *
@@ -17,4 +19,6 @@ public interface UserService {
     void updateUser(UserDTO user);
 
     void deleteUser(Long id);
+
+    List<UserDTO> getAllUsers();
 }

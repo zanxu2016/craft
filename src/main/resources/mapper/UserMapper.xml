@@ -20,4 +20,8 @@
     <delete id="deleteUserById" parameterType="java.lang.Long">
         delete from user where id = #{id}
     </delete>
+
+    <select id="getAllUsers" resultType="info.luckydog.craft.model.dto.UserDTO">
+        select * from user
+    </select>
 </mapper>
