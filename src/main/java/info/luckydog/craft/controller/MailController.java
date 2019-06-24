@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
+
 /**
  * MailController
  *
@@ -31,6 +33,10 @@ public class MailController {
 
         boolean success = mailService.sendMail(subject, content, recipient);
         log.info("mail has been sent? " + success);
+
+        File[] files = {new File(ClassLoader.getSystemResource("imgs/").getPath() + "white-cloud.jpg")};
+        boolean successWithAttachment = mailService.sendMail(subject, content, files, recipient);
+        log.info("mail with attachment has been sent? " + successWithAttachment);
 
         return "success";
     }
