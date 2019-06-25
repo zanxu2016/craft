@@ -18,6 +18,7 @@
     <properties>
         <java.version>1.8</java.version>
         <org.mapstruct.version>1.3.0.Beta1</org.mapstruct.version>
+        <tomcat.version>8.5.29</tomcat.version>
     </properties>
 
     <dependencies>
@@ -54,15 +55,6 @@
             <version>2.9.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -115,6 +107,27 @@
         <!--<artifactId>mail</artifactId>-->
         <!--<version>1.4.7</version>-->
         <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!-- 参数映射库 -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 可使用此依赖，修改 springboot 内置的 tomcat 版本号 -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-juli</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

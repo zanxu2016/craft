@@ -7,7 +7,7 @@ spring:
     url: jdbc:mysql://192.168.3.49:3306/mybatis?useUnicode=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 ## Mybatis 配置
 mybatis:
