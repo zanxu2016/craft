@@ -31,6 +31,7 @@ public class FilterConfig {
         registration.setFilter(httpLogFilter);
         registration.setName("httpLogFilter");
         registration.addUrlPatterns("/user/*");
+        registration.addUrlPatterns("/thread-pool/*");
 
         Map<String, String> params = new HashMap<>();
         params.put("encoding", "UTF-8");
