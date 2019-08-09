@@ -21,7 +21,7 @@ public class RedisLock {
      *
      * @param key   被秒杀商品的id
      * @param value 当前线程操作时的 System.currentTimeMillis() + 2000，2000是超时时间，这个地方不需要去设置redis的expire，
-     *              也不需要超时后手动去删除该key，因为会存在并发的线程都会去删除，造成上一个锁失效，结果都获得锁去执行，并发操作失败了就。
+     *              也不需要超时后手动去删除该key，因为会存在并发的线程都会去删除，造成上一个锁失效，结果都获得锁去执行，并发操作就失败了。
      * @return
      */
     public boolean lock(String key, String value) {

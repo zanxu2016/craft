@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = {"UserController"}, description = "用户相关接口")
 @RestController
 @RequestMapping("user")
+@Permission(funcNecessary = {PermissionEnum.ADMIN})
 @Slf4j
 public class UserController {
 
@@ -35,7 +36,6 @@ public class UserController {
         return userService.getUser(id);
     }
 
-//    @Permission(funcNecessary = {PermissionEnum.ADMIN})
     @PostMapping(value = "/add")
     public String addUser(@ModelAttribute UserDTO user) {
         userService.addUser(user);

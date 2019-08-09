@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * UserDTO
  *
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class UserDTO implements Serializable {
     @ApiModelProperty(name = "id", value = "用户Id", dataType = "Long", notes = "修改用户时必传")
     private Long id;
     @ApiModelProperty(name = "name", value = "姓名", dataType = "String", notes = "用于登录系统")
